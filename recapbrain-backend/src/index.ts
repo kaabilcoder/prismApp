@@ -142,7 +142,7 @@ app.get("/api/v1/brain/:shareLink", userMiddleware, async(req, res) => {
         res.status(411).json({
             message: "sorry incorrect input"
         })
-        return;
+        return;                 // early return if you are not using else in this case - typescript error
     }
     //userId
     const content = await ContentModel.find({
@@ -158,7 +158,7 @@ app.get("/api/v1/brain/:shareLink", userMiddleware, async(req, res) => {
         res.status(411).json({
             message: "user not found, error should ideally not happen"
         })
-        return;
+        return;                 // early return if you are not using else in this case - typescript error
     }
 
     res.json({
