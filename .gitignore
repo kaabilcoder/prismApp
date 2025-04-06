@@ -1,0 +1,17 @@
+# Ignore the frontend's build output
+recapbrain-frontend/dist/
+
+# Ignore backend's build or compiled output
+recapbrain-backend/dist/
+
+# Ignore env files
+*.env
+
+# Ignore node_modules or virtualenvs if present
+recapebrain-frontend/node_modules/
+recapebrain-backend/node_modules/
+*.venv/
+
+# Logs
+*.log
+
