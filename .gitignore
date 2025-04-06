@@ -8,8 +8,8 @@ recapbrain-backend/dist/
 *.env
 
 # Ignore node_modules or virtualenvs if present
-recapebrain-frontend/node_modules/
-recapebrain-backend/node_modules/
+recapbrain-frontend/node_modules/
+recapbrain-backend/node_modules/
 *.venv/
 
 # Logs
