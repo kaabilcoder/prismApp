@@ -1,5 +1,6 @@
 import { CrossIcon } from "../icons/CrossIcon";
 import { Button } from "./Button";
+import { InputBox } from "./InputBox";
 
 // @ts-ignore
 export function CreateContentModel({ open, onClose }) {
@@ -10,8 +11,8 @@ export function CreateContentModel({ open, onClose }) {
                     <CrossIcon />
                 </div>
                 <div>
-                    <Input placeholder={"Title"} />
-                    <Input placeholder={"Link"} />
+                    <InputBox placeholder={"Title"} />
+                    <InputBox placeholder={"Link"} />
                 </div>
                 <div className="flex justify-center">
                     <Button varient="primary" text="submit" />
@@ -19,16 +20,5 @@ export function CreateContentModel({ open, onClose }) {
             </span>
         </div>}
 
-    </div>
-}
-
-interface inputProps {
-    onChange?: () => void;
-    placeholder: string;
-}
-
-function Input({ onChange, placeholder }: inputProps) {
-    return <div>
-        <input placeholder={placeholder} type={"text"} className="px-4 py-2 border m-1 rounded" onChange={onChange}></input>
     </div>
 }
