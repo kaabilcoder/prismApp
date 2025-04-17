@@ -4,7 +4,8 @@ import { getTwitterEmbedURL, getYouTubeEmbedURL } from "../utils/Embeddings";
 interface CardProps {
     title: string;
     link: string;
-    type: "twitter" | "Youtube";
+    type: "twitter" | "youtube";
+    key?: string;
 }
 
 
@@ -24,7 +25,7 @@ export function Card({ title, link, type }: CardProps) {
                 </div>
             </div>
             <div className="pt-4">
-                {type === "Youtube" && <iframe className="w-full" width="560" height="315" src={getYouTubeEmbedURL(link)} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
+                {type === "youtube" && <iframe className="w-full" width="560" height="315" src={getYouTubeEmbedURL(link)} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
                 {type === "twitter" && <blockquote className="twitter-tweet">
                     <a href={getTwitterEmbedURL(link)}></a>
                 </blockquote>}
