@@ -1,7 +1,4 @@
-# Prism - Your Second Brain
-
-## About the App
-
+# Prism
 Prism is your second brain web App designed to save and search links. It allows users to store and organize their content in a structured way. The app enables users to save links and share them with others, creating a personal, easily accessible repository of knowledge. With the power of AI, users can search through their saved content effortlessly, making it a smart, intuitive tool for managing and retrieving important information.
 
 ---
