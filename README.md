@@ -1,8 +1,8 @@
-# PrismApp - Your Second Brain (AI Powered)
+# PrismApp - Your Second Brain
 
 ## About the App
 
-PrismApp is your second brain, powered by AI, that allows users to store and organize their content in a structured way. The app enables users to save links and share them with others, creating a personal, easily accessible repository of knowledge. With the power of AI, users can search through their saved content effortlessly, making it a smart, intuitive tool for managing and retrieving important information.
+PrismApp is your second brain web App designed to save and search links. It allows users to store and organize their content in a structured way. The app enables users to save links and share them with others, creating a personal, easily accessible repository of knowledge. With the power of AI, users can search through their saved content effortlessly, making it a smart, intuitive tool for managing and retrieving important information.
 
 ---
 
@@ -17,8 +17,8 @@ PrismApp is your second brain, powered by AI, that allows users to store and org
 ## Tech Stack
 
 - **Frontend**: React (with TypeScript)
-- **Backend**: Node.js (with TypeScript)
-- **Database**: (Optional, mention here if you're using any)
+- **Backend**: Node.js, Express.js (with TypeScript)
+- **Database**: MongoDB
 - **AI Integration**: Custom AI search functionality for semantic search of content
 
 ---
