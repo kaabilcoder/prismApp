@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import jwt from "jsonwebtoken";
 import { ContentModel, LinkModel, UserModel } from './db';
-import { JWT_PASSWORD } from './config';
+import { FRONTEND_URI, JWT_PASSWORD } from './config';
 import { userMiddleware } from './userMiddleware';
 import dotenv from 'dotenv'
 import { random } from './utils';
@@ -13,7 +13,11 @@ const app = express();
 const PORT = process.env.PORT 
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: FRONTEND_URI,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+}));
 
 app.post("/api/v1/signup", async(req, res) => {
     const username = req.body.username;

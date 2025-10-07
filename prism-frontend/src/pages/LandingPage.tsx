@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Zap } from "lucide-react"
+import { Zap, Github, Linkedin } from "lucide-react"
 import { FeatureSection } from "../components/FeaturesSection"
 export function LandingPage() {
 
@@ -10,7 +10,7 @@ export function LandingPage() {
                 <div className="flex justify-between items-center max-w-7xl mx-auto">
                     {/* App Title */}
                     <h1 className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-yellow-500">
-                        Prism
+                        Prism AI
                     </h1>
                     {/* Navigation Links */}
                     <nav className="space-x-4">
@@ -35,14 +35,19 @@ export function LandingPage() {
                 <section className="max-w-7xl mx-auto text-center py-16 sm:py-24">
                     
                     {/* Main Headline */}
-                    <h2 className="text-5xl sm:text-7xl lg:text-8xl font-extrabold mb-6 leading-tight">
-                        <span className="block text-gray-800">Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-yellow-500">Digital Brain</span>,</span>
-                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-red-600">Perfectly Organized.</span>
+                     <h2 className="text-5xl sm:text-7xl lg:text-8xl font-extrabold mb-4 leading-tight">
+                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-yellow-500">Welcome to Prism AI:</span>
+                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-red-600">Your Second Brain.</span>
                     </h2>
 
-                    {/* Sub-Headline / Slogan */}
-                    <p className="text-xl sm:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto">
-                        Spend less time searching and more time living. Prism stores and structures all your valuable social media posts and links in one secure, sharable place.
+                    {/* Primary Sub-Headline */}
+                    <p className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-2 max-w-3xl mx-auto">
+                        Easily save and organize your knowledge.
+                    </p>
+
+                    {/* Secondary Sub-Headline */}
+                     <p className="text-xl sm:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto">
+                        Seamlessly store, recall, and connect all your knowledge with Prism AI.
                     </p>
 
                     {/* Call to Action Button */}
@@ -65,8 +70,22 @@ export function LandingPage() {
             </main>
 
             {/* Footer Placeholder */}
-            <footer className="py-6 text-center text-gray-500 text-sm border-t border-gray-100">
-                &copy; {new Date().getFullYear()} Prism App. All rights reserved.
+             <footer className="py-8 text-center text-gray-500 text-sm border-t border-gray-100">
+                {/* Creator Credit with Link */}
+                <p className="text-gray-600 text-base">
+                    Built with <span role="img" aria-label="love">🫶🏻</span> 
+                    {' '}
+                    <a 
+                        href="https://linkedin.com/in/kaabilcoder" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-orange-500 hover:text-orange-600 font-semibold transition-colors"
+                    >
+                        Saurabh Kumar Sahu
+                    </a>
+                </p>
+                {/* Copyright */}
+                <p className="mt-2 text-xs text-gray-500">&copy; {new Date().getFullYear()} Prism AI. All rights reserved.</p>
             </footer>
         </div>
     )
