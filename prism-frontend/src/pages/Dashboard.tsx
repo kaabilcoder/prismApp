@@ -20,9 +20,13 @@ const Dashboard = () => {
   }, [modalOpen])
 
   //Delete post handler
-  async function handleDeleteContent(){
+  async function handleDeleteContent(contentId: string){
+
+          if(!contentId){
+            return toast.error("Cannot delete: Content ID is missing")
+          }
           try{
-             const response = await axios.delete(BACKEND_URL + "/api/v1/content", {
+             const response = await axios.delete(`${BACKEND_URL}/api/v1/content/${contentId}`, {
                   headers: {
                       "Authorization": localStorage.getItem("token")
                   }
@@ -59,12 +63,13 @@ const Dashboard = () => {
         </div>
 
         <div className='flex gap-4 flex-wrap'>
-          {contents.map(({ type, link, title }) =>
+          {contents.map(({ type, link, title, _id }) =>
             <Card
               type={type}
               title={title}
               link={link}
-              onDelete={()=> handleDeleteContent()}
+              key={_id}
+              onDelete={()=> handleDeleteContent(_id)}
             />
           )}
         </div>

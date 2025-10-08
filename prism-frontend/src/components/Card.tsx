@@ -1,19 +1,19 @@
 import { ShareIcon } from "../icons/ShareIcon";
 import { DeleteIcon } from '../icons/DeleteIcon'
 
-import { getTwitterEmbedURL, getYouTubeEmbedURL , getInstagramEmbedURL} from "../utils/Embeddings";
+import { getTwitterEmbedURL, getYouTubeEmbedURL , getInstagramEmbedURL, getLinkedInEmbedURL} from "../utils/Embeddings";
 
 
 interface CardProps {
     title: string;
     link: string;
-    type: "twitter" | "youtube" | "instagram";
-    key?: string;
+    type: "twitter" | "youtube" | "instagram" | "linkedin";
+    _id?: string;
     onDelete?: () => void;
 }
 
 
-export function Card({ title, link, type, onDelete }: CardProps) {
+export function Card({ title, link, _id, type, onDelete }: CardProps) {
 
     return <div>
         <div className="bg-white p-4 border rounded-md shadow-md border-slate-100 max-w-72 min-h-48 min-w-72">
@@ -26,7 +26,7 @@ export function Card({ title, link, type, onDelete }: CardProps) {
                     <a href={link} target="_blank">
                     </a>
                     <div>
-                        <span className="cursor-pointer" onClick={onDelete}><DeleteIcon /></span>
+                        <span className="cursor-pointer" onClick={onDelete} key={_id} ><DeleteIcon /></span>
                     </div>
                 </div>
             </div>
@@ -36,6 +36,10 @@ export function Card({ title, link, type, onDelete }: CardProps) {
                 {type === "twitter" && <blockquote className="twitter-tweet">
                     <a href={getTwitterEmbedURL(link)}></a>
                 </blockquote>}
+                {type === "linkedin" && <blockquote className="linkedin-post">
+                    <a href={getLinkedInEmbedURL(link)}></a>
+                </blockquote>}
+
             </div>
         </div>
     </div>

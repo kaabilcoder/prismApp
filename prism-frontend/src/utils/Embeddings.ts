@@ -15,3 +15,6 @@ export function getInstagramEmbedURL(url: string): string {
 }
 
   
+export function getLinkedInEmbedURL(url: string): string {
+  return url;
+}
