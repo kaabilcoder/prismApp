@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import jwt from "jsonwebtoken";
 import { ContentModel, LinkModel, UserModel } from './db';
@@ -91,14 +91,25 @@ app.get("/api/v1/content", userMiddleware, async(req, res) => {
     })
 })
 
-app.delete("/api/v1/content", userMiddleware, async(req, res) => {
-    // @ts-ignore
-    const contentId = req.contentId;
-    await ContentModel.deleteOne({
-        contentId,
-        userId: req.userId
-    })
+app.delete("/api/v1/content/:id", userMiddleware, async(req, res) => {
+    //@ts-ignore
+    const contentId = req.params.id;
+    const userId = req.userId;
 
+    if(!contentId){
+        res.status(400).json({message: "Content Id missing from request"})
+        return;
+    }
+
+    const result = await ContentModel.deleteOne({
+        _id: new mongoose.Types.ObjectId(contentId),
+        userId: userId
+    });
+
+    if (result.deletedCount === 0) {
+        res.status(404).json({ message: "Content not found or unauthorized." });
+        return;
+    }
     res.json({
         message: "Deleted"
     })
