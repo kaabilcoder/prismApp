@@ -45,7 +45,7 @@ const Dashboard = () => {
     <div>
       <SideBar />
 
-      <div className='p-4 ml-72 min-h-screen bg-gray-200 border-2 border-gray-300'>
+      <div className='p-4 ml-50 min-h-screen bg-gray-200 border-2 border-gray-300'>
         <CreateContentModel open={modalOpen} onClose={() => { setModalOpen(false) }} />
 
         <div className='flex justify-end gap-2'>
@@ -54,7 +54,7 @@ const Dashboard = () => {
             const response = await axios.post(`${BACKEND_URL}/api/v1/brain/share`, { share: true }, { headers: { "Authorization": localStorage.getItem('token') } });
             const shareURL = `http://localhost:5173/share/${response.data.hash}`;
             navigator.clipboard.writeText(shareURL).then(() => {
-              toast('Share URL copied to clipboard!');
+              toast.success('Your mind copied to Clipboard');
             }).catch(err => {
               console.error('Failed to copy URL: ', err);
               toast.error("failed to copy url")
