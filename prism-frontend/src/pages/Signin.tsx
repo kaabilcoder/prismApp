@@ -4,6 +4,7 @@ import { InputBox } from "../components/InputBox";
 import { useRef } from "react";
 import { BACKEND_URL } from "../conifg";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 export function Signin() {
@@ -24,9 +25,10 @@ export function Signin() {
             localStorage.setItem("token", jwt)
             navigate("/dashboard")
 
-        } catch (error) {
-            console.error("Signup failed:", error);
-            alert("Signup failed. Please try again.");
+        } catch (error: any) {
+            console.error("SignIn failed:", error);
+            const message = error.response.data.message || error.message || "SignIn Failed"
+            toast.error(message);
         }
     }
 

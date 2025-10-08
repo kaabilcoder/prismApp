@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-import { Zap, Github, Linkedin } from "lucide-react"
 import { FeatureSection } from "../components/FeaturesSection"
+import { Zap } from "lucide-react"
 export function LandingPage() {
 
     return (
@@ -56,7 +56,7 @@ export function LandingPage() {
                         className="inline-flex items-center justify-center space-x-2 px-10 py-4 text-xl font-bold text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-[1.03]
                                    bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 ring-4 ring-orange-200"
                     >
-                        {<Zap />}
+                        {<Zap/>}
                         <span>Start Your Prism Now</span>
                     </Link>
                     <p className="mt-4 text-sm text-gray-500">

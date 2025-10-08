@@ -7,7 +7,8 @@ import { BACKEND_URL } from "../conifg";
 
 enum ContentType {
     Youtube = "youtube",
-    Twitter = "twitter"
+    Twitter = "twitter",
+    Instagram = "instagram"
 }
 
 // @ts-ignore
@@ -49,6 +50,7 @@ export function CreateContentModel({ open, onClose }) {
                     <div className="flex gap-1 pb-3 justify-center">
                         <Button text="Youtube" varient={type == ContentType.Youtube ? "primary" : "secondary"} onClick={() => setType(ContentType.Youtube)}></Button>
                         <Button text="Twitter" varient={type == ContentType.Twitter ? "primary" : "secondary"} onClick={() => setType(ContentType.Twitter)}></Button>
+                        <Button text="Instagram" varient={type == ContentType.Instagram ? "primary" : "secondary"} onClick={() => setType(ContentType.Instagram)}></Button>
                     </div>
                     <div className="flex justify-center">
                         <Button onClick={addContent} varient="primary" text="submit" />
