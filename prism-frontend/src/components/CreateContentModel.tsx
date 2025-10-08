@@ -1,15 +1,17 @@
 import { useRef, useState } from "react";
 import { CrossIcon } from "../icons/CrossIcon";
-import { Button } from "./Button";
+import { FencyButton, MiniButton } from "./Button";
 import { InputBox } from "./InputBox";
 import axios from "axios";
 import { BACKEND_URL } from "../conifg";
+import { YoutubeIcon } from "../icons/YoutubeIcon";
+import { TwitterIcon } from "../icons/TwitterIcon";
+import { InstagramIcon } from "../icons/InstagramIcon";
 
 enum ContentType {
     Youtube = "youtube",
     Twitter = "twitter",
     Instagram = "instagram",
-    LinkedIn = "linkedin"
 }
 
 // @ts-ignore
@@ -44,20 +46,23 @@ export function CreateContentModel({ open, onClose }) {
                         <CrossIcon />
                     </div>
                     <div>
+                        <label htmlFor="Title" className="block font-medium text-[#4F39F6] ml-1">Title</label>
                         <InputBox ref={titleRef} placeholder={"Title"} />
+                        <label htmlFor="Link" className="block font-medium text-[#4F39F6] ml-1">Link</label>
                         <InputBox ref={linkRef} placeholder={"Link"} />
                     </div>
-                    <span className="flex justify-center m-1 text-xl">Type</span>
-                    <div className="flex gap-1 pb-3 justify-center">
-                        <Button text="Youtube" varient={type == ContentType.Youtube ? "primary" : "secondary"} onClick={() => setType(ContentType.Youtube)}></Button>
-                        <Button text="Twitter" varient={type == ContentType.Twitter ? "primary" : "secondary"} onClick={() => setType(ContentType.Twitter)}></Button>
+                    <span className="flex justify-start font-medium m-1 text-[#4F39F6]">Type</span>
+                    <div className="flex gap-1 pb-3 justify-start ml-1">
+                        <MiniButton startIcon={<YoutubeIcon />} varient={type == ContentType.Youtube ? "primary" : "secondary"} onClick={() => setType(ContentType.Youtube)}></MiniButton>
+                        <MiniButton startIcon={<TwitterIcon />} varient={type == ContentType.Twitter ? "primary" : "secondary"} onClick={() => setType(ContentType.Twitter)}></MiniButton>
+                        <MiniButton startIcon={<InstagramIcon />} varient={type == ContentType.Instagram ? "primary" : "secondary"} onClick={() => setType(ContentType.Instagram)}></MiniButton>
                     </div>
-                    <div className="flex gap-1 pb-3 justify-center">
-                        <Button text="Instagram" varient={type == ContentType.Instagram ? "primary" : "secondary"} onClick={() => setType(ContentType.Instagram)}></Button>
-                        <Button text="LinkedIn" varient={type == ContentType.LinkedIn ? "primary" : "secondary"} onClick={() => setType(ContentType.LinkedIn)}></Button>
-                    </div>
+                    {/* <div className="mb-2">
+                        <label htmlFor="Tags" className="block font-medium text-[#4F39F6] ml-1">Tag</label>
+                        <InputBox ref={linkRef} placeholder={"Tag"} />
+                    </div> */}
                     <div className="flex justify-center">
-                        <Button onClick={addContent} varient="primary" text="submit" />
+                        <FencyButton onClick={addContent} varient="primary" text="submit" />
                     </div>
                 </span>
             </div>

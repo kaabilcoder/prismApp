@@ -1,13 +1,13 @@
 import { ShareIcon } from "../icons/ShareIcon";
 import { DeleteIcon } from '../icons/DeleteIcon'
 
-import { getTwitterEmbedURL, getYouTubeEmbedURL , getInstagramEmbedURL, getLinkedInEmbedURL} from "../utils/Embeddings";
+import { getTwitterEmbedURL, getYouTubeEmbedURL , getInstagramEmbedURL} from "../utils/Embeddings";
 
 
 interface CardProps {
     title: string;
     link: string;
-    type: "twitter" | "youtube" | "instagram" | "linkedin";
+    type: "twitter" | "youtube" | "instagram" ;
     _id?: string;
     onDelete?: () => void;
 }
@@ -35,9 +35,6 @@ export function Card({ title, link, _id, type, onDelete }: CardProps) {
                 {type === "instagram" && <iframe className="w-full" width="560" height="315" src={getInstagramEmbedURL(link)} title="Instagram video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
                 {type === "twitter" && <blockquote className="twitter-tweet">
                     <a href={getTwitterEmbedURL(link)}></a>
-                </blockquote>}
-                {type === "linkedin" && <blockquote className="linkedin-post">
-                    <a href={getLinkedInEmbedURL(link)}></a>
                 </blockquote>}
 
             </div>

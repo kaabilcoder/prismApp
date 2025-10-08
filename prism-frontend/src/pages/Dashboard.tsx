@@ -49,7 +49,7 @@ const Dashboard = () => {
         <CreateContentModel open={modalOpen} onClose={() => { setModalOpen(false) }} />
 
         <div className='flex justify-end gap-2'>
-          <Button onClick={() => { setModalOpen(true) }} varient='primary' text='Add Content' startIcon={<PlusIcon />}></Button>
+          <Button onClick={() => { setModalOpen(true) }} varient='secondary' text='Add Content' startIcon={<PlusIcon />}></Button>
           <Button onClick={async () => {
             const response = await axios.post(`${BACKEND_URL}/api/v1/brain/share`, { share: true }, { headers: { "Authorization": localStorage.getItem('token') } });
             const shareURL = `http://localhost:5173/share/${response.data.hash}`;
@@ -59,10 +59,10 @@ const Dashboard = () => {
               console.error('Failed to copy URL: ', err);
               toast.error("failed to copy url")
             });
-          }} varient='secondary' text='Share Brain' startIcon={<ShareIcon />}></Button>
+          }} varient='primary' text='Share Brain' startIcon={<ShareIcon />}></Button>
         </div>
 
-        <div className='flex gap-4 flex-wrap'>
+        <div className='flex gap-4 flex-wrap m-12'>
           {contents.map(({ type, link, title, _id }) =>
             <Card
               type={type}

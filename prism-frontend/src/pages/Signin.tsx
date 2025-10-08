@@ -1,9 +1,9 @@
 import axios from "axios";
-import { Button } from "../components/Button";
+import { FencyButton } from "../components/Button";
 import { InputBox } from "../components/InputBox";
 import { useRef } from "react";
 import { BACKEND_URL } from "../conifg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 
@@ -32,13 +32,23 @@ export function Signin() {
         }
     }
 
-    return <div className="h-screen w-screen bg-gray-200 flex justify-center items-center">
-        <div className="bg-white rounded border min-w-48 m-3 p-2">
-            <InputBox ref={usernameRef} placeholder="Username" />
-            <InputBox ref={passwordRef} placeholder="Password" />
-            <div className="flex justify-center p-3">
-                <Button onClick={signin} varient="primary" text="Sign In" fullWidth={true} />
+    return (
+         <div className="h-screen w-screen bg-gray-200 flex justify-center items-center">
+            <div className="bg-white rounded border min-w-48 m-3 p-2">
+                <div className="flex justify-center"><span className="text-xl">Welcome Back</span></div>
+                <label htmlFor="username" className="block text-sm font-medium text-[#4F39F6] m-1">Username</label>
+                <InputBox ref={usernameRef} placeholder="Username" />
+                <label htmlFor="password" className="block text-sm font-medium text-[#4F39F6] m-1">Password</label>
+                <InputBox ref={passwordRef} placeholder="Password" />
+                <div className="flex justify-center p-3">
+                    <FencyButton onClick={signin} varient="primary" text="Sign In" fullWidth={true}/>
+                </div>
+                <p className="text-center text-black text-sm mt-2 mb-1">Don't have an account? {" "}
+                    <Link to={"/signup"} className="text-[#4F39F6] hover:text-[#4F39F6] font-medium hover:underline transition duration-300">
+                Sign Up
+            </Link>
+                </p>
             </div>
         </div>
-    </div>
+    )
 }
