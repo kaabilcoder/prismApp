@@ -62,7 +62,7 @@ const Dashboard = () => {
           }} varient='primary' text='Share Brain' startIcon={<ShareIcon />}></Button>
         </div>
 
-        <div className='flex gap-4 flex-wrap m-12'>
+        <div className='flex gap-4 flex-wrap m-12 "'>
           {contents.map(({ type, link, title, _id }) =>
             <Card
               type={type}

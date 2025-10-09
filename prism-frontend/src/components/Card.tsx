@@ -38,7 +38,7 @@ export function Card({ title, link, _id, type, onDelete }: CardProps) {
             </div>
             <div className="pt-4">
                 {type === "youtube" && <iframe className="w-full" width="560" height="315" src={getYouTubeEmbedURL(link)} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
-                {type === "github" && link && <GitHubCard repoUrl={link}/>},
+                {type === "github" && link && <GitHubCard repoUrl={link}/>}
                 {type === "twitter" && <blockquote className="twitter-tweet">
                     <a href={getTwitterEmbedURL(link)}></a>
                 </blockquote>}
