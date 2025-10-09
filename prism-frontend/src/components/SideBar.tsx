@@ -1,11 +1,12 @@
 import toast from "react-hot-toast";
-import { HomeIcon } from "../icons/HomeIcon";
 import { Logo } from "../icons/Logo";
 import { ProfileIcon } from "../icons/ProfileIcon";
 import { TwitterIcon } from "../icons/TwitterIcon";
 import { YoutubeIcon } from "../icons/YoutubeIcon";
 import { SideBarContent } from "./sideBarContent";
 import { useNavigate } from "react-router-dom";
+import { GithubIcon } from "../icons/GithubIcon";
+import { LinkIcon } from "../icons/LinkIcon";
 
 export function SideBar() {
     const navigate = useNavigate();
@@ -33,9 +34,10 @@ export function SideBar() {
                 </div>
             </div>
             <div className="mt-6 space-y-2">
-                <SideBarContent text="Home" icon={<HomeIcon />} />
                 <SideBarContent text="Tweets" icon={<TwitterIcon />} />
                 <SideBarContent text="Youtube" icon={<YoutubeIcon />} />
+                <SideBarContent text="GitHub" icon={<GithubIcon />} />
+                <SideBarContent text="Any Link" icon={<LinkIcon />} />
             </div>
         </div>
             <div>

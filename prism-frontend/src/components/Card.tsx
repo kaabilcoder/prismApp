@@ -5,13 +5,12 @@ import { YoutubeIcon } from "../icons/YoutubeIcon";
 import { TwitterIcon } from "../icons/TwitterIcon";
 import GitHubCard from '../utils/GithubCard';
 import { GithubIcon } from '../icons/GithubIcon';
-import { DocsIcon } from '../icons/DocsIcon';
 import { LinkIcon } from '../icons/LinkIcon';
 
 interface CardProps {
     title: string;
     link: string;
-    type: "twitter" | "youtube" | "github" | "docs" | "linkIcon";
+    type: "twitter" | "youtube" | "github" | "linkIcon";
     _id?: string;
     onDelete?: () => void;
 }
@@ -26,7 +25,6 @@ export function Card({ title, link, _id, type, onDelete }: CardProps) {
                     {type === "youtube" && <YoutubeIcon />}
                     {type === "twitter" && <TwitterIcon />}
                     {type === "github" && <GithubIcon/>}
-                    {type === "docs" && <DocsIcon/>}
                     {type === "linkIcon" && <LinkIcon/>}
                     <span className="ml-2 text-black">{title}</span>
                 </div>
@@ -45,7 +43,7 @@ export function Card({ title, link, _id, type, onDelete }: CardProps) {
                     <a href={getTwitterEmbedURL(link)}></a>
                 </blockquote>}
 
-                {(type === 'docs' || type === 'linkIcon') && link && (
+                {(type === 'linkIcon') && link && (
                 <a
                   href={link}
                   target="_blank"
