@@ -6,12 +6,17 @@ import axios from "axios";
 import { BACKEND_URL } from "../conifg";
 import { YoutubeIcon } from "../icons/YoutubeIcon";
 import { TwitterIcon } from "../icons/TwitterIcon";
-import { InstagramIcon } from "../icons/InstagramIcon";
+import { GithubIcon } from "../icons/GithubIcon";
+import { DocsIcon } from "../icons/DocsIcon";
+import { LinkIcon } from "../icons/LinkIcon";
+import { ShareIcon } from "../icons/ShareIcon";
 
 enum ContentType {
     Youtube = "youtube",
     Twitter = "twitter",
-    Instagram = "instagram",
+    Github = "github",
+    Docs = "docs",
+    LinkIcon = 'linkIcon'
 }
 
 // @ts-ignore
@@ -55,7 +60,9 @@ export function CreateContentModel({ open, onClose }) {
                     <div className="flex gap-1 pb-3 justify-start ml-1">
                         <MiniButton startIcon={<YoutubeIcon />} varient={type == ContentType.Youtube ? "primary" : "secondary"} onClick={() => setType(ContentType.Youtube)}></MiniButton>
                         <MiniButton startIcon={<TwitterIcon />} varient={type == ContentType.Twitter ? "primary" : "secondary"} onClick={() => setType(ContentType.Twitter)}></MiniButton>
-                        <MiniButton startIcon={<InstagramIcon />} varient={type == ContentType.Instagram ? "primary" : "secondary"} onClick={() => setType(ContentType.Instagram)}></MiniButton>
+                        <MiniButton startIcon={<GithubIcon />} varient={type == ContentType.Github ? "primary" : "secondary"} onClick={() => setType(ContentType.Github)}></MiniButton>
+                        <MiniButton startIcon={<LinkIcon />} varient={type == ContentType.LinkIcon ? "primary" : "secondary"} onClick={() => setType(ContentType.LinkIcon)}></MiniButton>
+                        <MiniButton startIcon={<ShareIcon />} varient={type == ContentType.Docs ? "primary" : "secondary"} onClick={() => setType(ContentType.Github)}></MiniButton>
                     </div>
                     {/* <div className="mb-2">
                         <label htmlFor="Tags" className="block font-medium text-[#4F39F6] ml-1">Tag</label>

@@ -1,15 +1,17 @@
 import { DeleteIcon } from '../icons/DeleteIcon'
 
-import { getTwitterEmbedURL, getYouTubeEmbedURL , getInstagramEmbedURL} from "../utils/Embeddings";
+import { getTwitterEmbedURL, getYouTubeEmbedURL } from "../utils/Embeddings";
 import { YoutubeIcon } from "../icons/YoutubeIcon";
 import { TwitterIcon } from "../icons/TwitterIcon";
-import { InstagramIcon } from "../icons/InstagramIcon";
-
+import GitHubCard from '../utils/GithubCard';
+import { GithubIcon } from '../icons/GithubIcon';
+import { DocsIcon } from '../icons/DocsIcon';
+import { LinkIcon } from '../icons/LinkIcon';
 
 interface CardProps {
     title: string;
     link: string;
-    type: "twitter" | "youtube" | "instagram" ;
+    type: "twitter" | "youtube" | "github" | "docs" | "linkIcon";
     _id?: string;
     onDelete?: () => void;
 }
@@ -23,7 +25,9 @@ export function Card({ title, link, _id, type, onDelete }: CardProps) {
                 <div className="flex text-gray-500 ">
                     {type === "youtube" && <YoutubeIcon />}
                     {type === "twitter" && <TwitterIcon />}
-                    {type === "instagram" && <InstagramIcon />}
+                    {type === "github" && <GithubIcon/>}
+                    {type === "docs" && <DocsIcon/>}
+                    {type === "linkIcon" && <LinkIcon/>}
                     <span className="ml-2 text-black">{title}</span>
                 </div>
                 <div className="flex text-gray-500">
@@ -36,10 +40,25 @@ export function Card({ title, link, _id, type, onDelete }: CardProps) {
             </div>
             <div className="pt-4">
                 {type === "youtube" && <iframe className="w-full" width="560" height="315" src={getYouTubeEmbedURL(link)} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
-                {type === "instagram" && <iframe className="w-full" width="560" height="315" src={getInstagramEmbedURL(link)} title="Instagram video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
+                {type === "github" && link && <GitHubCard repoUrl={link}/>},
                 {type === "twitter" && <blockquote className="twitter-tweet">
                     <a href={getTwitterEmbedURL(link)}></a>
                 </blockquote>}
+
+                {(type === 'docs' || type === 'linkIcon') && link && (
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-md border transition overflow-hidden"
+                >
+                  <img
+                    src={`https://api.microlink.io?url=${encodeURIComponent(link)}&screenshot=true&embed=screenshot.url`}
+                    alt="Link preview"
+                    className="w-full h-40 object-cover"
+                  />
+                </a>
+              )}
 
             </div>
         </div>
