@@ -1,7 +1,9 @@
-import { ShareIcon } from "../icons/ShareIcon";
 import { DeleteIcon } from '../icons/DeleteIcon'
 
 import { getTwitterEmbedURL, getYouTubeEmbedURL , getInstagramEmbedURL} from "../utils/Embeddings";
+import { YoutubeIcon } from "../icons/YoutubeIcon";
+import { TwitterIcon } from "../icons/TwitterIcon";
+import { InstagramIcon } from "../icons/InstagramIcon";
 
 
 interface CardProps {
@@ -19,7 +21,9 @@ export function Card({ title, link, _id, type, onDelete }: CardProps) {
         <div className="bg-white p-4 border rounded-md shadow-md border-slate-100 max-w-72 min-h-48 min-w-72">
             <div className="flex justify-between">
                 <div className="flex text-gray-500 ">
-                    <ShareIcon />
+                    {type === "youtube" && <YoutubeIcon />}
+                    {type === "twitter" && <TwitterIcon />}
+                    {type === "instagram" && <InstagramIcon />}
                     <span className="ml-2 text-black">{title}</span>
                 </div>
                 <div className="flex text-gray-500">
