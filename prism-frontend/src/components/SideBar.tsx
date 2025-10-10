@@ -1,5 +1,4 @@
 import toast from "react-hot-toast";
-import { Logo } from "../icons/Logo";
 import { ProfileIcon } from "../icons/ProfileIcon";
 import { TwitterIcon } from "../icons/TwitterIcon";
 import { YoutubeIcon } from "../icons/YoutubeIcon";
@@ -8,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { GithubIcon } from "../icons/GithubIcon";
 import { LinkIcon } from "../icons/LinkIcon";
 import { HomeIcon } from "../icons/HomeIcon";
+
 
 interface SideBarProps {
     onSelectType: React.Dispatch<React.SetStateAction<string>>;
@@ -33,10 +33,10 @@ export function SideBar({ onSelectType, selectedType }: SideBarProps){
     return (
     <div className="h-screen bg-white border-r w-62 fixed left-0 top-0 border-gray-200 pl-4 pt-6 flex flex-col justify-between text-gray-600">
         <div>
-            <div className="text-3xl pb-3">
-                <div className="flex gap-2">
-                    <Logo />
-                    <span>Prism</span>
+            <div className="text-4xl pb-3">
+                <div className="flex gap-2 items-center ">
+                    <img src="/logo.svg" alt="App Logo" className="w-10 h-10 cursor-pointer" onClick={() => navigate("/dashboard")}></img>
+                    <span className="text-[#4F39F6]">Prism</span>
                 </div>
             </div>
             <div className="mt-6 space-y-2">

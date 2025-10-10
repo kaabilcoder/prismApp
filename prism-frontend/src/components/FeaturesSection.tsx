@@ -1,5 +1,5 @@
 import { FeatureCard } from "./FeatureCard";
-import { Link, WandSparkles, Share2 } from "lucide-react";
+import { Link, WandSparkles, Share2} from "lucide-react";
 export const FeatureSection = () =>{
      const features = [
     {

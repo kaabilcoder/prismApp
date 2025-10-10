@@ -9,7 +9,7 @@ export function LandingPage() {
             <header className="fixed top-0 left-0 right-0 z-10 p-4 sm:p-6 bg-white/95 backdrop-blur-sm shadow-md">
                 <div className="flex justify-between items-center max-w-7xl mx-auto">
                     {/* App Title */}
-                    <h1 className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-yellow-500">
+                    <h1 className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#4F39F6] to-blue-400">
                         Prism AI
                     </h1>
                     {/* Navigation Links */}
@@ -22,7 +22,7 @@ export function LandingPage() {
                         </Link>
                         <Link
                             to={"/signup"}
-                            className="px-4 py-2 text-white bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 font-semibold text-lg"
+                            className="px-4 py-2 text-white bg-gradient-to-r from-[#4F39F6] to-blue-400 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 font-semibold text-lg"
                         >
                             Sign Up
                         </Link>
@@ -36,8 +36,8 @@ export function LandingPage() {
                     
                     {/* Main Headline */}
                      <h2 className="text-5xl sm:text-7xl lg:text-8xl font-extrabold mb-4 leading-tight">
-                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-yellow-500">Welcome to Prism AI:</span>
-                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-red-600">Your Second Brain.</span>
+                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#4F39F6] to-blue-400">Welcome to Prism AI:</span>
+                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#4F39F6] to-blue-400">Your Second Brain.</span>
                     </h2>
 
                     {/* Primary Sub-Headline */}
@@ -54,7 +54,7 @@ export function LandingPage() {
                     <Link
                         to={"/signup"}
                         className="inline-flex items-center justify-center space-x-2 px-10 py-4 text-xl font-bold text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-[1.03]
-                                   bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 ring-4 ring-orange-200"
+                                   bg-gradient-to-r from-[#4F39F6] to-blue-400 hover:from-[#4F39F8] hover:to-blue-500 ring-4 ring-blue-200"
                     >
                         {<Zap/>}
                         <span>Start Your Prism Now</span>
@@ -79,7 +79,7 @@ export function LandingPage() {
                         href="https://linkedin.com/in/kaabilcoder" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-orange-500 hover:text-orange-600 font-semibold transition-colors"
+                        className="text-[#4F39F6] hover:text-[#4F39F8] font-semibold transition-colors"
                     >
                         Saurabh Kumar Sahu
                     </a>
