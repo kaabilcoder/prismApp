@@ -13,7 +13,8 @@ import toast from 'react-hot-toast'
 const Dashboard = () => {
 
   const [modalOpen, setModalOpen] = useState(false);
-  const { contents, refresh } = useContent();
+  const [selectedType, setSelectedType] = useState("all"); 
+  const { contents, refresh } = useContent(selectedType);
 
   useEffect(() => {
     refresh();
@@ -43,7 +44,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <SideBar />
+      <SideBar onSelectType={setSelectedType} selectedType={selectedType} />
 
       <div className='p-4 ml-50 min-h-screen bg-gray-200 border-2 border-gray-300'>
         <CreateContentModel open={modalOpen} onClose={() => { setModalOpen(false) }} />

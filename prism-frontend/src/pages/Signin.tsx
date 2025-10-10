@@ -27,9 +27,14 @@ export function Signin() {
 
         } catch (error: any) {
             console.error("SignIn failed:", error);
-            const message = error.response.data.message || error.message || "SignIn Failed"
-            toast.error(message);
+
+            const message =
+            error?.response?.data?.message ||
+            error?.message ||
+            "SignIn failed. please try again later";
+            toast.error(message)
         }
+        
     }
 
     return (

@@ -7,8 +7,14 @@ import { SideBarContent } from "./sideBarContent";
 import { useNavigate } from "react-router-dom";
 import { GithubIcon } from "../icons/GithubIcon";
 import { LinkIcon } from "../icons/LinkIcon";
+import { HomeIcon } from "../icons/HomeIcon";
 
-export function SideBar() {
+interface SideBarProps {
+    onSelectType: React.Dispatch<React.SetStateAction<string>>;
+    selectedType: string;
+}
+
+export function SideBar({ onSelectType, selectedType }: SideBarProps){
     const navigate = useNavigate();
 
     const LogoutHandler = () =>{
@@ -34,10 +40,11 @@ export function SideBar() {
                 </div>
             </div>
             <div className="mt-6 space-y-2">
-                <SideBarContent text="Tweets" icon={<TwitterIcon />} />
-                <SideBarContent text="Youtube" icon={<YoutubeIcon />} />
-                <SideBarContent text="GitHub" icon={<GithubIcon />} />
-                <SideBarContent text="Any Link" icon={<LinkIcon />} />
+                <SideBarContent text="Home" type="all" icon={<HomeIcon />} onclick={() => onSelectType("all")} active={selectedType === "all"} />
+                <SideBarContent text="Tweets" type="twitter" icon={<TwitterIcon />} onclick={() => onSelectType("twitter")} active={selectedType === "twitter"}  />
+                <SideBarContent text="Youtube" type="youtube" icon={<YoutubeIcon />} onclick={() => onSelectType("youtube")} active={selectedType === "youtube"}/>
+                <SideBarContent text="GitHub" type="github" icon={<GithubIcon />} onclick={() => onSelectType("github")} active={selectedType === "github"}/>
+                <SideBarContent text="Any Link" type="anylink" icon={<LinkIcon />} onclick={() => onSelectType("anylink")} active={selectedType === "anylink"}/>
             </div>
         </div>
             <div>

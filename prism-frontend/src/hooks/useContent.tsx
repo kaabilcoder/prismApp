@@ -2,10 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { BACKEND_URL } from "../conifg";
 
-export function useContent() {
-    const [contents, setContents] = useState([])
+export function useContent(selectedType = "all") {
+    const [contents, setContents] = useState([]);
+
     function refresh() {
-        axios.get(`${BACKEND_URL}/api/v1/content`, {
+        const query = selectedType && selectedType !== "all" ? `?type=${selectedType}` : "";
+        axios.get(`${BACKEND_URL}/api/v1/content${query}`, {
             headers: {
                 "Authorization": localStorage.getItem("token")
             }
@@ -21,7 +23,7 @@ export function useContent() {
         return () => {
             clearInterval(interval);
         }
-    }, [])
+    }, [selectedType])
 
     return { contents, refresh }
 }

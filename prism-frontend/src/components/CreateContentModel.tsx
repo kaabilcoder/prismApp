@@ -14,7 +14,7 @@ enum ContentType {
     Twitter = "twitter",
     Github = "github",
     Docs = "docs",
-    LinkIcon = 'linkIcon'
+    Anylink = 'anylink'
 }
 // @ts-ignore
 export function CreateContentModel({ open, onClose }) {
@@ -29,7 +29,7 @@ export function CreateContentModel({ open, onClose }) {
         await axios.post(`${BACKEND_URL}/api/v1/content`, {
             link,
             title,
-            type
+            type,
         }, {
             headers: {
                 "Authorization": localStorage.getItem("token")
@@ -60,12 +60,8 @@ export function CreateContentModel({ open, onClose }) {
                         <MiniButton startIcon={<YoutubeIcon />} varient={type == ContentType.Youtube ? "primary" : "secondary"} onClick={() => setType(ContentType.Youtube)}></MiniButton>
                         <MiniButton startIcon={<TwitterIcon />} varient={type == ContentType.Twitter ? "primary" : "secondary"} onClick={() => setType(ContentType.Twitter)}></MiniButton>
                         <MiniButton startIcon={<GithubIcon />} varient={type == ContentType.Github ? "primary" : "secondary"} onClick={() => setType(ContentType.Github)}></MiniButton>
-                        <MiniButton startIcon={<LinkIcon />} varient={type == ContentType.LinkIcon ? "primary" : "secondary"} onClick={() => setType(ContentType.LinkIcon)}></MiniButton>
+                        <MiniButton startIcon={<LinkIcon />} varient={type == ContentType.Anylink ? "primary" : "secondary"} onClick={() => setType(ContentType.Anylink)}></MiniButton>
                     </div>
-                    {/* <div className="mb-2">
-                        <label htmlFor="Tags" className="block font-medium text-[#4F39F6] ml-1">Tag</label>
-                        <InputBox ref={linkRef} placeholder={"Tag"} />
-                    </div> */}
                     <div className="flex justify-center">
                         <FencyButton onClick={addContent} varient="primary" text="submit" />
                     </div>
