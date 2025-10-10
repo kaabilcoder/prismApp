@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import mongoose from 'mongoose';
 import jwt from "jsonwebtoken";
 import { ContentModel, LinkModel, UserModel } from './db';
@@ -10,7 +10,7 @@ import  cors  from 'cors'
 dotenv.config()
 
 const app = express();
-const PORT = process.env.PORT 
+const PORT = process.env.PORT
 
 app.use(express.json());
 app.use(cors({
@@ -63,15 +63,19 @@ app.post("/api/v1/signin", async(req, res) => {
 })
 
 app.post("/api/v1/content", userMiddleware, async(req, res) => {
-    const link = req.body.link;
-    const type = req.body.type;
+    const { link, type, title } = req.body
+    if(!link || !type || !title) {
+        res.status(400).json({
+            message: "Missing Required filled"
+        })
+        return;
+    }
 
     await ContentModel.create({
         link,
         type,
         title: req.body.title,
         userId: req.userId,
-        tags: []
     })
 
     res.json({
@@ -83,9 +87,16 @@ app.post("/api/v1/content", userMiddleware, async(req, res) => {
 app.get("/api/v1/content", userMiddleware, async(req, res) => {
     // @ts-ignore
     const userId = req.userId;
-    const content = await ContentModel.find({
-        userId: userId
-    }).populate("userId", "username")
+    const typeParam = req.query.type;
+
+    const type = Array.isArray(typeParam) ? typeParam[0] : typeParam;
+
+    const filter: any = { userId };
+
+    if(typeof type === "string" && type !== "all"){
+        filter.type = type.toString();
+    }
+    const content = await ContentModel.find(filter).populate("userId", "username")
     res.json({
         content
     })
