@@ -8,14 +8,8 @@ const ContentSchema = new Schema({
     userId: {type: mongoose.Types.ObjectId, ref: "User", required: true},
 });
 
-const LinkSchema = new Schema({
-    hash: String,
-    userId: {type: mongoose.Types.ObjectId}
-})
-
-const TagsSchema = new Schema({
-    name: {type: String, required: true, unique: true, trim: true}
-})
+// const TagsSchema = new Schema({
+//     name: {type: String, required: true, unique: true, trim: true}
+// })
 
 export const ContentModel = model("Content", ContentSchema);
-export const LinkModel = model("Links", LinkSchema);

@@ -33,4 +33,3 @@ if(ENV=='development'){
 }
 
 export {FRONTEND_URI};
-export const JWT_PASSWORD = "!23123";
