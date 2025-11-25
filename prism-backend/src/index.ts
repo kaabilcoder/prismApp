@@ -1,17 +1,19 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import jwt from "jsonwebtoken";
-import { ContentModel, LinkModel, UserModel } from './db';
-import { FRONTEND_URI, JWT_PASSWORD } from './config';
+import { UserModel } from './models/User';
+import { ContentModel, LinkModel} from './models/Content';
+import { connecDb, FRONTEND_URI, JWT_PASSWORD } from './config/config';
 import { userMiddleware } from './userMiddleware';
 import dotenv from 'dotenv'
-import { random } from './utils';
+import { random } from './config/utils';
 import  cors  from 'cors'
 dotenv.config()
 
 const app = express();
 const PORT = process.env.PORT
 
+connecDb();
 app.use(express.json());
 app.use(cors({
     origin: FRONTEND_URI,
